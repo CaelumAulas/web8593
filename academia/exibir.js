@@ -4,5 +4,4 @@ function exibir(texto) {
     $paragrafo.innerHTML = texto
 
     document.body.appendChild($paragrafo)
-
 }
