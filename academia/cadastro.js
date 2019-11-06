@@ -21,6 +21,8 @@ function cadastro() {
     var altura = $inputAltura.value
     var peso = $inputPeso.value
 
+    var idade = calculaIdade()
+
     var dataValida = validaData(dataNascimento)
     var cpfValido = validaCPF(cpf)
     
@@ -36,6 +38,9 @@ function cadastro() {
             <br><br>
 
             Data Nascimento: ${ dataNascimento }
+            <br><br>
+
+            Idade: ${ idade }
             <br><br>
 
             CPF: ${ cpf }
