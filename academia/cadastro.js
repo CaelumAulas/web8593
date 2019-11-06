@@ -8,6 +8,12 @@ function validaData(data) {
     return listaMatchData !== null
 }
 
+function validaCPF(cpf) {
+    var padraoCPF = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/
+    var listaMatchCPF = cpf.match(padraoCPF)
+    return listaMatchCPF !== null
+}
+
 function cadastro() {
     var nome = $inputNome.value
     var dataNascimento = $inputDataNascimento.value
@@ -16,8 +22,9 @@ function cadastro() {
     var peso = $inputPeso.value
 
     var dataValida = validaData(dataNascimento)
+    var cpfValido = validaCPF(cpf)
     
-    var estaValido = dataValida
+    var estaValido = dataValida && cpfValido
     
     if(estaValido) {
         // salvar
@@ -45,5 +52,4 @@ function cadastro() {
     } else {
         alert("Informações inválidas")
     }
-
 }
