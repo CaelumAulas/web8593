@@ -37,6 +37,26 @@ function validaCPF(cpf) {
     return listaMatchCPF !== null
 }
 
+// Função factory
+function criaFicha(nome, dataNascimento, cpf, altura, peso) {
+    var ficha = {
+        "nome": nome,
+        "dataNascimento": dataNascimento,
+        "cpf": cpf,
+        "altura": altura,
+        "peso": peso,
+        toString: function () {
+            // this é qualquer coisa
+            // Não depende do código que você escreve
+            // return JSON.stringify(this)
+            
+            return JSON.stringify(ficha)
+        }
+    }
+
+    return ficha
+}
+
 function cadastro() {
     var nome = $inputNome.value
     var dataNascimento = $inputDataNascimento.value
@@ -56,11 +76,13 @@ function cadastro() {
         var mes = data.mes
         var ano = data.ano
         var idade = calculaIdade(dia, mes, ano)
+
+        var ficha = criaFicha(nome, dataNascimento, cpf, altura, peso)
         
         // salvar
+        localStorage.setItem("ficha", ficha)
 
-        // exibir na página
-        // Template string
+
         exibir(`
             Nome: ${ nome }
             <br><br>
